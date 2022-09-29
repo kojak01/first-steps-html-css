@@ -1,0 +1,336 @@
+/* Global */
+
+$color-main: #009432;
+$color-lite: #fff;
+
+$font-text: 'Josefin Sans', sans-serif;
+$font-header: 'Open Sans', sans-serif;
+
+*, *::before, *::after {
+    box-sizing: border-box;    
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    background: #fff;
+    color: #3d3d3d;
+    font-size: 16px;
+    line-height: 1.7;
+    font-family: $font-text;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 50px 0 50px 0;   /* tutaj nie wiem o co chodzi dlaczego section */ 
+}
+
+/* Splash */
+
+.splash {
+    height: 100vh;
+    position: relative;
+    background-image: url('https://images.pexels.com/photos/1477199/pexels-photo-1477199.jpeg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed; /* przy wiekszej ilosci tresci sprawdz jak dzila z i bez tej funkcji */
+}
+
+.splash-inner {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.splash i {
+    font-size: 50px;  
+    background: $color-main;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    color: $color-lite;
+    border-radius: 50%;
+}
+
+.page-title {
+    color: $color-lite;
+    font-size: 60px;
+    margin: 30px 0 0 0;
+    font-family: $font-header;
+}
+
+.page-title::after {
+    position: absolute;
+    content: '';
+    bottom: 80px;
+    left: 50%;
+    width: 150px;
+    height: 10px;
+    transform: translate(-50%);
+    background: $color-main; 
+}
+
+.page-subtitle {
+    color: $color-lite;
+    font-size: 30px;
+    margin: 60px 0 0 0;
+}
+
+/* intro */
+
+.intro {
+    background: $color-lite;    
+}
+
+.intro p {
+    width: 70%;
+    margin: 0 auto;
+    padding: -5px 0;
+    font-size: 20px;
+    border-top: 1px solid $color-main;
+    border-bottom: 1px solid $color-main;
+}
+
+.section-title {
+    position: relative;
+    font-size: 36px;
+    margin: 0 0 40px 0;
+    font-family: $font-header;
+}
+
+.section-title::after {
+    position: absolute;
+    content: '';
+    bottom: -12px;
+    left: 50%;
+    width: 80px;
+    height: 10px;
+    transform: translate(-50%);
+    background: $color-main;         
+}
+
+.about {
+    background-color: #f1f2f6;    
+}
+
+/* Skills */
+
+[class^="skill-"] {
+    position: relative;    
+}
+
+.skill-image {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.skill-image img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+
+.skill-right .skill-image {
+    right: 0;    
+}
+
+.skill-right .skills-description {
+    padding: 36px 55% 36px 0;
+    text-align: right;
+}
+
+.skill-left .skills-description {
+    padding: 36px 0 36px 55%;    
+}
+
+.skill-left .skill-title {
+    text-align: left;
+}
+
+.skills p {
+    text-align: justify;    
+}
+
+/* transform img .skills */
+
+.skill-image img:hover {
+    transform: scale(1.1);    
+}
+.skill-image img {
+    transition: all 0.5s;    
+}
+
+/* Gallery */
+
+.gallery {
+    max-width: 1440px;
+    min-width: 800px;
+    align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+    padding: 0;
+}
+
+.gallery .element {
+    position: relative;
+    float: left;
+	width: 33.3333%;
+	height: 250px;
+	background: #fff;
+}
+
+.gallery .element img {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.gallery .layer {                   /* po tym jak ustawilismy obrazy w galeri wypozycjonowane w rodzicu div.element*/
+    display: none;                 /* czasa na nałożenie szkiełka i dlatego tworzymy kolejny tag div class="layer"*/
+    background: rgba(0,0,0,.5);     /* po sprawdzeniu czy "szkiełko" działa właczamy display none*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.gallery .element:hover .layer {       /*teraz chcemy zeby po najechaniu wyswietlało się "szkiełko" ale że layer ma display none to go nie widać*/
+    display: block;                     /*dlatego trzeba nadać pseudoklase:hover na element który cały czas jest widoczny w tym przypadku .element*/
+    }                                   
+    
+.gallery .element .layer h4 {         /*teraz chcemy żeby po najechaniu był widoczny napis wiec w tej samej klasie .layer dodajemy nagłówek*/
+    position: absolute;                 /*i juz*/
+    width: 100%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: $color-lite;
+}
+
+.gallery .element .layer button {    /*teraz dodajemy przycisk robimy to samo w klasie .layer pozycjoinujemy go wzgledem rodzica i tak zeby nie zasłaniał napisu h4*/
+    position: absolute;                 
+    width: 20%;
+    height: 30%;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    background-color: #e66510;
+    border-radius: 10px;
+    color: $color-lite;
+}
+/* Button under Gallery */
+a.button {
+    text-decoration: none;
+    color: $color-lite;    
+}
+    
+.button-under {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100px;
+}
+
+.under-button {
+    transition-duration: 0.4s;
+    position: absolute;
+    width: 5%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    background-color: #e66510;
+    border-radius: 10px;
+    color: $color-lite;  
+}
+
+.under-button {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0), 0 6px 20px 0 rgba(0,0,0,0);
+}
+
+.under-button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0,0,0,0.5);
+}
+/* Form */
+.container-form {
+    max-width: 100%;
+	max-height: 600px;
+	min-height: 600px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #f1f2f6;
+}
+form {
+    background: #f1f2f6;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: space-around;
+	min-width: 350px;
+	max-width: 600px;
+	max-height: 500px;
+	min-height: 500px;
+	padding: 30px;
+	text-align: center;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    width: 50%;
+    height: 15%;
+    background: #e66510;
+    color: $color-lite;
+    cursor: pointer;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    border: 2px solid black;
+}
+
+textarea {
+   resize: none;
+   height: 100px;
+   width: 100%;
+   font-family: $font-header;
+}
+
+.con-submit {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0), 0 6px 20px 0 rgba(0,0,0,0);
+}
+
+
+.con-submit:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5),0 17px 50px 0 rgba(0,0,0,0.5);
+}
+
+/* Page-Footer */
+
+.page-footer {
+    border: 1px solid black;
+    background: #242424;
+    color: $color-lite; 
+}
