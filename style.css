@@ -21,7 +21,7 @@ body {
 }
 
 section {
-  padding: 50px 0 50px 0; /* tutaj nie wiem o co chodzi dlaczego section */
+  padding: 50px 0 50px 0;
 }
 
 /* Splash */
@@ -31,7 +31,7 @@ section {
   background-image: url("https://images.pexels.com/photos/1477199/pexels-photo-1477199.jpeg");
   background-position: center center;
   background-size: cover;
-  background-attachment: fixed; /* przy wiekszej ilosci tresci sprawdz jak dzila z i bez tej funkcji */
+  background-attachment: fixed;
 }
 
 .splash-inner {
@@ -188,9 +188,9 @@ section {
   transform: translate(-50%, -50%);
 }
 
-.gallery .layer { /* po tym jak ustawilismy obrazy w galeri wypozycjonowane w rodzicu div.element*/
-  display: none; /* czasa na nałożenie szkiełka i dlatego tworzymy kolejny tag div class="layer"*/
-  background: rgba(0, 0, 0, 0.5); /* po sprawdzeniu czy "szkiełko" działa właczamy display none*/
+.gallery .layer { 
+  display: none; 
+  background: rgba(0, 0, 0, 0.5); 
   position: absolute;
   width: 100%;
   height: 100%;
@@ -198,12 +198,12 @@ section {
   top: 0;
 }
 
-.gallery .element:hover .layer { /*teraz chcemy zeby po najechaniu wyswietlało się "szkiełko" ale że layer ma display none to go nie widać*/
-  display: block; /*dlatego trzeba nadać pseudoklase:hover na element który cały czas jest widoczny w tym przypadku .element*/
+.gallery .element:hover .layer { 
+  display: block; 
 }
 
-.gallery .element .layer h4 { /*teraz chcemy żeby po najechaniu był widoczny napis wiec w tej samej klasie .layer dodajemy nagłówek*/
-  position: absolute; /*i juz*/
+.gallery .element .layer h4 { 
+  position: absolute; 
   width: 100%;
   top: 30%;
   left: 50%;
@@ -211,7 +211,7 @@ section {
   color: #fff;
 }
 
-.gallery .element .layer button { /*teraz dodajemy przycisk robimy to samo w klasie .layer pozycjoinujemy go wzgledem rodzica i tak zeby nie zasłaniał napisu h4*/
+.gallery .element .layer button { 
   position: absolute;
   width: 20%;
   height: 30%;
